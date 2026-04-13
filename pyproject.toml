@@ -1,0 +1,42 @@
+[project]
+name = "plottyart"
+version = "0.1.0"
+description = "CLI art generator for mathematical abstract images"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+	"numpy>=1.26",
+	"matplotlib>=3.8",
+	"pillow>=10.0",
+	"scipy>=1.11",
+	"librosa>=0.10",
+]
+
+[project.optional-dependencies]
+dev = [
+	"pytest>=8.0",
+	"ruff>=0.5",
+]
+
+[project.scripts]
+plottyart = "plottyart.main:main"
+
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["plottyart*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["F", "I"]
